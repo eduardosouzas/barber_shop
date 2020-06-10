@@ -1,0 +1,26 @@
+version: '3'
+services:
+  database:
+    container_name: "database"
+    image: postgres:11
+    environment:
+      POSTGRES_PASSWORD: "docker"
+    ports:
+      - "5432:5432"
+    volumes:
+     - /Users/edusouza/projetos/docker/postgres/data:/var/lib/postgresql/data
+
+  mongobarber:
+    container_name: mongobarber
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - /Users/edusouza/projetos/docker/postgres/data:/data/db
+
+  redisbarber:
+    container_name: redisbarber
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+
